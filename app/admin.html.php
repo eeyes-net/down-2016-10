@@ -157,7 +157,7 @@
                     <td><select type="text" name="icon_path">
                             <option value="0">（无）</option>
                             <?php foreach ($icons as &$icon): ?>
-                                <option value="<?= htmlentities($icon) ?>"<?= ($icon == $item['icon_path']) ? ' selected' : '' ?>><?= htmlspecialchars($icon) ?></option>
+                                <option value="<?= htmlentities($icon) ?>"><?= htmlspecialchars($icon) ?></option>
                             <?php endforeach; ?>
                         </select></td>
                     <td><select type="text" name="win_id">
