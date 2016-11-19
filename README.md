@@ -22,7 +22,7 @@
 
 6. 访问`http://localhost/app/index.php`生成主页缓存文件
 
-7. 此时访问主页即可
+7. 此时访问主页`http://localhost/public/`即可
 
 ## 说明
 

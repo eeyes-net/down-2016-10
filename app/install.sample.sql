@@ -17,11 +17,11 @@ CREATE TABLE IF NOT EXISTS `down_list` (
 
 CREATE TABLE IF NOT EXISTS `down_file` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT '自增序号',
-  `name_md5` CHAR(32) NOT NULL COMMENT '路径的索引',
+  `name_md5` CHAR(32) NOT NULL COMMENT '路径索引',
   `path` VARCHAR(2048) NOT NULL COMMENT '文件相对路径',
-  `size` INT NOT NULL COMMENT '文件大小',
+  `size` BIGINT NOT NULL COMMENT '文件大小',
   `version` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '文件版本',
-  `enabled` TINYINT NOT NULL DEFAULT '1' COMMENT '是否禁用',
+  `enabled` TINYINT NOT NULL DEFAULT '1' COMMENT '是否启用',
   PRIMARY KEY (`id`),
   UNIQUE (`name_md5`)
 ) ENGINE = MyISAM CHARSET = utf8 COLLATE utf8_general_ci;

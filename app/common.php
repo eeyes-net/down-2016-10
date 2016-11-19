@@ -64,7 +64,7 @@ function &scan_file($path, $root)
                 $ret_arr[] = [
                     'name' => $file,
                     'path' => $file_path,
-                    'abs_path' => $abs_path,
+                    // 'abs_path' => $abs_path,
                     'rel_path' => substr($abs_path, strlen($root) + 1), // 除去首部的根目录，转换为相对路径
                     'size' => filesize($abs_path),
                 ];
@@ -104,5 +104,5 @@ function readable_size($bytes)
  */
 function compress_html($html)
 {
-    return str_replace('> <', '><', trim(preg_replace('/\\s+/s', ' ', preg_replace('/<!--.*?-->/s', '', $html))));
+    return preg_replace('/ ?([.,:;#{}<>@\\/*\'"]) ?/s', '$1', trim(preg_replace('/\\s+/s', ' ', preg_replace('/<!--.*?-->/s', '', $html))));
 }

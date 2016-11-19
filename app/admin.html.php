@@ -193,7 +193,6 @@
     <table>
         <thead>
             <tr>
-                <th>id</th>
                 <th>文件路径</th>
                 <th>文件大小</th>
                 <th>文件版本</th>
@@ -206,7 +205,6 @@
                 <tr>
                     <form action="?type=file_update" method="post" class="auto-submit">
                         <input type="hidden" name="id" value="<?= htmlentities($file['id']) ?>">
-                        <td align="right"><?= htmlspecialchars($file['id']) ?></td>
                         <td><?= htmlspecialchars($file['path']) ?></td>
                         <td align="right"><?= htmlspecialchars($file['size']) ?></td>
                         <td><input type="text" name="version" value="<?= htmlentities($file['version']) ?>"></td>

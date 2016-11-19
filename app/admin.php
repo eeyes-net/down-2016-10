@@ -94,7 +94,7 @@ $result = $mysqli->query('SELECT `id`, `name`, `icon_path`, `win_id`, `mac_id`, 
 $list = $result->fetch_all(MYSQLI_ASSOC);
 $result->close();
 // 读取所有文件信息
-$result = $mysqli->query('SELECT `id`, `path`, `size`, `version`, `enabled` FROM `down_file`');
+$result = $mysqli->query('SELECT `id`, `path`, `size`, `version`, `enabled` FROM `down_file` ORDER BY `path` ASC');
 $files = $result->fetch_all(MYSQLI_ASSOC);
 $result->close();
 foreach ($files as &$file) {
