@@ -86,7 +86,7 @@
             margin-top: 24px;
             font-size: 14px;
             line-height: 24px;
-            min-height: 96px;
+            height: 96px;
             overflow: auto;
         }
         .cn-footer {
@@ -115,8 +115,6 @@
             float: left;
         }
         .cn-footer a {
-            /*font-size: 14px;*/
-            /*width: 156px;*/
             height: 40px;
             text-align: center;
             line-height: 48px;
@@ -185,10 +183,6 @@
 </head>
 
 <body>
-    <!--<div style="position:fixed;left:0%;top:50%;z-index:999;"></div>-->
-    <!--左侧侧边栏-->
-    <!--<div style="position:fixed;left:95%;top:50%;z-index:999;"></div>-->
-    <!--右侧侧边栏-->
     <div class="header">
         <div class="inner f-cl">
             <img src="img/logo.png" class="logo-left">
