@@ -51,15 +51,15 @@ if (isset($_GET['type'])) {
 }
 
 // 读取所有文件信息
-$result = $mysqli->query('SELECT `id`, `path`, `size`, `version`, `enabled` FROM `down_file`');
+$result = $mysqli->query('SELECT `id`, `path` FROM `down_file`');
 $files = $result->fetch_all(MYSQLI_ASSOC);
 $result->close();
-// 如果文件不存在则删除
-$stmt = $mysqli->prepare('DELETE FROM `down_file` WHERE `id` = ?');
-$stmt->bind_param('d', $file['id']);
+// 如果文件不存在则伪删除
+$stmt = $mysqli->prepare("UPDATE `down_file` SET `path` = '', `enabled` = '0' WHERE `id` = ?");
+$stmt->bind_param('d', $id);
 foreach ($files as &$file) {
-    $file['exist'] = file_exists(config('directory')['root'] . '/' . $file['path']);
-    if (!$file['exist']) {
+    if (!file_exists(config('directory')['root'] . '/' . $file['path'])) {
+        $id = $file['id'];
         $stmt->execute();
     }
 }
@@ -68,8 +68,8 @@ $stmt->close();
 // 遍历下载目录
 $files = scan_file(config('directory')['down'], config('directory')['root']);
 // 插入数据库（`path_ md5`是UNIQUE索引，会自动排除已存在的文件）
-$stmt = $mysqli->prepare('INSERT INTO `down_file` (`name_md5`, `path`, `size`) VALUES (?, ?, ?)');
-$stmt->bind_param('ssd', $name_md5, $path, $size);
+$stmt = $mysqli->prepare("INSERT INTO `down_file` (`name_md5`, `path`, `size`) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE `path` = ?, `size` = ?, `enabled` = '1'");
+$stmt->bind_param('ssdsd', $name_md5, $path, $size, $path, $size);
 foreach ($files as &$file) {
     $name_md5 = md5($file['name']);
     $path = $file['rel_path'];
