@@ -210,11 +210,11 @@
                     <div class="cn-footer f-cl">
                         <p><?= isset($item['win']) ? ' Win: ' . htmlspecialchars($item['win']['version']) : '' ?><?= isset($item['mac']) ? ' Mac: ' . htmlspecialchars($item['mac']['version']) : '' ?></p>
                         <?php if (isset($item['win'])): ?>
-                            <a href="http://down.eeyes.net/<?= htmlentities(urlencode($item['win']['path'])) ?>" title="<?= htmlentities($item['win']['size']) ?>"><img src="img/win.png"/>
+                            <a href="http://down.eeyes.net/<?= htmlentities($item['win']['path']) ?>" title="<?= htmlentities($item['win']['size']) ?>"><img src="img/win.png"/>
                                 <p style="margin:8px 4px 0 8px;float:right;">WIN版本</p></a>
                         <?php endif; ?>
                         <?php if (isset($item['mac'])): ?>
-                            <a href="http://down.eeyes.net/<?= htmlentities(urlencode($item['mac']['path'])) ?>" title="<?= htmlentities($item['mac']['size']) ?>"><img src="img/mac.png"/>
+                            <a href="http://down.eeyes.net/<?= htmlentities($item['mac']['path']) ?>" title="<?= htmlentities($item['mac']['size']) ?>"><img src="img/mac.png"/>
                                 <p style="margin:8px 4px 0 8px;float:right;">MAC版本</p></a>
                         <?php endif; ?>
                     </div>
