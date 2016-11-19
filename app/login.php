@@ -18,5 +18,6 @@ if (isset($_POST['password'])) {
     }
 } else {
     // 输出登录页面
-    exit('<form method="post"><input type="password" name="password"><input type="submit"></form>');
+    include dirname(__FILE__) . '/login.html.php';
+    exit();
 }
