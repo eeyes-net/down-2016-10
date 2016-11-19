@@ -9,8 +9,8 @@ CREATE TABLE IF NOT EXISTS `down_list` (
   `win_id` INT NOT NULL DEFAULT '0' COMMENT 'Windows版的外键',
   `mac_id` INT NOT NULL DEFAULT '0' COMMENT 'Mac版的外键',
   `desc` VARCHAR(2048) NOT NULL DEFAULT '' COMMENT '软件描述',
-  `order` INT NOT NULL DEFAULT '0' COMMENT '排序',
-  `enabled` TINYINT NOT NULL DEFAULT '1' COMMENT '是否禁用',
+  `order` INT NOT NULL DEFAULT '32767' COMMENT '排序',
+  `enabled` TINYINT NOT NULL DEFAULT '1' COMMENT '是否启用',
   PRIMARY KEY (`id`),
   UNIQUE (`name`)
 ) ENGINE = MyISAM CHARSET = utf8 COLLATE utf8_general_ci;

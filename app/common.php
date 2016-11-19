@@ -24,7 +24,7 @@ function connect_db()
 {
     $database = config('database');
     $mysqli = new mysqli($database['hostname'], $database['username'], $database['password'], $database['database']);
-    $mysqli->set_charset('utf-8');
+    $mysqli->set_charset('utf8');
     return $mysqli;
 }
 
@@ -55,7 +55,7 @@ function &scan_file($path, $root)
     foreach ($files as &$file) {
         $file_path = $path . '/' . $file;
         if (is_dir($file_path)) {
-            $ret_arr += scan_file($file_path, $root);
+            $ret_arr = array_merge($ret_arr, scan_file($file_path, $root));
         } else {
             // 获取绝对路径
             $abs_path = realpath($file_path);
